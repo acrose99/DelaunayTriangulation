@@ -18,7 +18,7 @@ const LControl = () => {
     }
   }, [dom, control])
   // @ts-ignore
-  return <OrbitControls ref={control} domElement={dom.current} />
+  return <OrbitControls maxDistance={1000} ref={control} domElement={dom.current} />
 }
 const LCanvas = ({ children }) => {
   const dom = useStore((state) => state.dom)
@@ -28,6 +28,7 @@ const LCanvas = ({ children }) => {
       mode='concurrent'
       style={{
         position: 'absolute',
+        background: 'grey',
         top: 0,
       }}
       onCreated={(state) => state.events.connect(dom.current)}
